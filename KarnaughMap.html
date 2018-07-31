@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+    <link rel="shortcut icon" href="karnaugh.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <title>K-Map Generator</title>
+</head>
+
+<header style="text-align: center;">
+    <img class="ulblogo" src="ulb.png" />
+    <h1>Karnaugh Map Generator</h1>
+    <h3>By Antonio García Díaz<br />Université Libre de Bruxelles 2016-2017</h3>
+</header>
+
+<body>
+<script src="KMapGenerator.js"></script>
+
+<form id="KMapMaker">
+	<div id="KMapDiv">
+        <script>
+            document.write(generateKMapHTML());
+        </script>
+	</div>
+
+    <div id="SolutionDiv">
+        <script>
+            document.write(generateSolutionHTML());
+        </script>
+	</div>
+
+    <br /><p><center>
+    <input id="resetButton" type="button" name="resetButton" value="Reset K-Map" onClick="resetKMap();">
+    &emsp; Allow "don't care" symbols
+    <input type="checkbox" name="dontCare" onClick="switchDontCare();">
+    </center></p>
+
+    <p><center>Number of logic variables:
+    <input type="radio" name="numVar" onClick="changeNumVar(2);" id="Var2"> 2
+    <input type="radio" name="numVar" onClick="changeNumVar(3);" id="Var3"> 3
+    <input type="radio" name="numVar" onClick="changeNumVar(4);" id="Var4" checked> 4
+    <input type="radio" name="numVar" onClick="changeNumVar(5);" id="Var5"> 5
+	</center></p>
+
+    <br /><p><h4><center><a name="LaTeX">Exportable LaTeX (askmaps) code for the current K-Map:</a></center></h4></p>
+    <p><center>
+    <textarea class="latexcode" id="LaTeXCode" rows="10" cols="100"></textarea>
+    </center></p>
+    <script>
+        document.getElementById("LaTeXCode").value = generateLaTeXCode();
+    </script>
+
+    <p><h4><center>You may also paste the following header on your LaTeX document (recomended).</center></h4></p>
+    <p><center>
+    <textarea class="latexcode" id="HeaderLaTeXCode" rows="20" cols="100"></textarea>
+    </center></p>
+    <script>
+        document.getElementById("HeaderLaTeXCode").value = writeDocHeader();
+    </script>
+</form>
+
+</body>
+
+</html>

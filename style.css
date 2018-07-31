@@ -1,0 +1,30 @@
+body{
+	background: url("background.jpg");
+}
+
+*{
+	font-family: 'Patrick Hand', Georgia;
+    font-weight: bold;
+}
+
+h1{
+	color: blue;
+	text-shadow: 0px 0px 3px black;
+	font-family: Georgia;
+}
+
+h2{
+	color: blue;
+	text-shadow: 0px 0px 3px black;
+	font-family: 'Patrick Hand', Georgia;
+}
+
+.ulblogo{
+    position: absolute;
+    top: 0cm; right: 0cm;
+    z-index:-5;
+}
+
+.latexcode{
+	font-family: Courier, Georgia;
+}
